@@ -49,7 +49,7 @@ work station
     kubectl version
 
 
-# Finally After insalling the eks and kubectl, we have to use eks.yaml file(managenodegroup) and create our eks cluster
+# Finally After insalling the eksctl and kubectl, we have to use eks.yaml file(managenodegroup) and create our eks cluster
 
     eksctl create cluster --config-file=eks.yaml
 
