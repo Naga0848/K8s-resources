@@ -1,0 +1,28 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: roboshop
+  region: us-east-1
+
+managedNodeGroups:
+  - name: roboshop
+    instanceTypes: ["m5.large", "c3.large","c4.large","c5.large"]
+    desiredCapacity: 3
+    spot: true
+
+
+
+# This is the managenodegroup, through which we create the eks cluster. In future we will create the complete eks cluster using terraform. This is only for production
+
+
+# Understanding spot instances
+# spot instances
+# ===============
+# on demand --> whenever you require you create instance, aws gaurentees you to get instance --> 1$/hour
+# 
+# spot --> AWS data center have lot of resources
+# I can give for less cost 70-90% discount --> 20cents/hour
+# 2min notice
+# 
+# on demand --> AWS takes back spot instances if it needs capacity    

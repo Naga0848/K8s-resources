@@ -5,6 +5,12 @@ We will have a workstation
     - Kubectl to interact with cluster via AWS CLI
     - eksctl to install the kubernetes cluster
 
+work station
+============
+1. install docker
+2. run aws configure
+3. install eksctl for cluster creation
+4. install kubectl for cluster interaction
 
 # Steps to install K8s
 
@@ -37,3 +43,14 @@ We will have a workstation
 
 # 4) Kubectl installation
 
+    curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.33.0/2025-05-01/bin/linux/amd64/kubectl
+    chmod +x ./kubectl   >> execution permission
+    sudo mv kubectl /usr/local/bin/kubectl   >>> who ever logins will get k8s access
+    kubectl version
+
+
+# Finally After insalling the eks and kubectl, we have to use eks.yaml file(managenodegroup) and create our eks cluster
+
+    eksctl create cluster --config-file=eks.yaml
+
+    By default our ec2 nodes will be created in the default-vpc
