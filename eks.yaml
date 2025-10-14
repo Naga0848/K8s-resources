@@ -10,7 +10,6 @@ managedNodeGroups:
     instanceTypes: ["m5.large", "c3.large","c4.large","c5.large"]
     desiredCapacity: 3
     spot: true
-    autoModeConfig.enabled: false
 
 
 # This is the managenodegroup, through which we create the eks cluster. In future we will create the complete eks cluster using terraform. This is only for production
