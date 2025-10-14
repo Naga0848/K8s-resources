@@ -1,3 +1,6 @@
+AKIA4IWGK5AE3R4ZWMHJ	Access key
+FBNpS8Q4uRITNn6cN3lYEdkauMbWY8TAxVd2arEe	"Secret access key
+"
 
 Look at the K8s.png image to understand how kubectl, eksctl and docker works
 We will have a workstation 
