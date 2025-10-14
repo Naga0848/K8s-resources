@@ -1,0 +1,7 @@
+apiversion: v1
+kind: Pod
+metadata:
+  name: my-pod
+  labels:
+    project: roboshop
+    env: dev-env
