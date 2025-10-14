@@ -3,14 +3,14 @@ kind: ClusterConfig
 
 metadata:
   name: roboshop
-  region: ap-south-1
+  region: us-east-1c
 
 managedNodeGroups:
   - name: roboshop
     instanceTypes: ["m5.large", "c3.large","c4.large","c5.large"]
     desiredCapacity: 3
     spot: true
-
+    autoModeConfig.enabled: false
 
 
 # This is the managenodegroup, through which we create the eks cluster. In future we will create the complete eks cluster using terraform. This is only for production
@@ -26,3 +26,6 @@ managedNodeGroups:
 # 2min notice
 # 
 # on demand --> AWS takes back spot instances if it needs capacity    
+
+
+# Auto Mode will be enabled by default in an upcoming release of eksctl. This means managed node groups and managed networking add-ons will no longer be created by default. To maintain current behavior, explicitly set 'autoModeConfig.enabled: false' in your cluster configuration. Learn more: https://eksctl.io/usage/auto-mode/
