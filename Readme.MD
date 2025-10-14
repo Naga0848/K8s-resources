@@ -1,5 +1,3 @@
-
-
 Look at the K8s.png image to understand how kubectl, eksctl and docker works
 We will have a workstation 
     - Docker for the images
