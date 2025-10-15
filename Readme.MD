@@ -58,3 +58,7 @@ work station
 
     Here, we can login to the ec2 instances(nodes), but we cannot login to the control plane which we see in tghe AWS console. ANd it is managed by AWS itself.
 
+
+
+
+
