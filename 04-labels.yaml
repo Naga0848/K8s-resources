@@ -18,5 +18,5 @@ spec:
 # lables are used as selectors for other resources inside kuberentes... useful for filtering resources. lables values we can't keep long values, only 63char
 
 
-# annotations are similar to labels, it is key value pair, but not used as selectors. annotations are used to provision external resources to kuberentes. we keep external information build url, image registry, etc...annotations values can be 256char
+
 

@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: resource-limits
+  labels:
+    env: dev-env
+    tier: frontend
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    resources:
+      requests: # soft limit
+        memory: "68Mi"
+        cpu: "100m"
+      limits: # hard limit
+        memory: "128Mi"
+        cpu: "150m"
+        
+
+
+# Horizontal Auto scaling and Vertical Auto scaling
+
+# Vertical auto scaling
+ # in general if u want to construct a firstfloor and secondfloor on the existing 20years old building
+     # you shouldn't stay in the house while remodelling   (downtime) in our case, when u r increasing the resources manually, the application inside our container will not be available to the users
+     # your basement may not be strong to bear another 2 floors
+     # ratherthan doing this u can take new land and construct two new houses(autoscaling)
+
+# Horizontal auto scaling
+  # rather than going to VA - companies prefer to go for the HA.
+
+
