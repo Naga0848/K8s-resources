@@ -27,3 +27,10 @@ spec:
 
 # exit --- to come out of the pod
 
+# code and configuration. try to keep configuration always outside(loose coupling)
+
+# we try to keep the configuration outside of pod definition. i.e configmap
+
+# And finally, we keep env variables and the configs in a configmap and we refer them inside the pod.
+
+
