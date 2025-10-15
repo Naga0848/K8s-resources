@@ -4,6 +4,8 @@ We will have a workstation
     - Kubectl to interact with cluster via AWS CLI
     - eksctl to install the kubernetes cluster
 
+# When you create an IAM user, make sure you give adminaccess to the user
+
 work station
 ============
 1. install docker
