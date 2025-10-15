@@ -20,6 +20,10 @@ spec:
 
 # 1 processor = 1000m, 250m = 0.25
 
+# kubectl top pods (command to see which pod specific resources)
+
+# After doing a performance testing either archetict or the developers will confirm the resources limits to us
+
 # Horizontal Auto scaling and Vertical Auto scaling
 
 # Vertical auto scaling
