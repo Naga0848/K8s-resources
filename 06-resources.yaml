@@ -18,6 +18,7 @@ spec:
         cpu: "150m"
         
 
+# 1 processor = 1000m, 250m = 0.25
 
 # Horizontal Auto scaling and Vertical Auto scaling
 
@@ -26,8 +27,10 @@ spec:
      # you shouldn't stay in the house while remodelling   (downtime) in our case, when u r increasing the resources manually, the application inside our container will not be available to the users
      # your basement may not be strong to bear another 2 floors
      # ratherthan doing this u can take new land and construct two new houses(autoscaling)
+     # so, we can understand that in VA, increasing the resouces in the same server
 
 # Horizontal auto scaling
   # rather than going to VA - companies prefer to go for the HA.
+  # increasing the no of servers with te same resources
 
 
