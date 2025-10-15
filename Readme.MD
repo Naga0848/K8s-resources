@@ -4,7 +4,7 @@ We will have a workstation
     - Kubectl to interact with cluster via AWS CLI
     - eksctl to install the kubernetes cluster
 
-# When you create an IAM user, make sure you give adminaccess to the user
+# When you create an IAM user, make sure you give adminaccess to the user and while doing aws configure, please mention the region aswell along with access-key and secret-key
 
 work station
 ============
