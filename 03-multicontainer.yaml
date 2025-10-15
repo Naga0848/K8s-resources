@@ -26,6 +26,6 @@ spec:
 # even after loggininto to the second container, we could still see the nginx welcome page. This is because the nginx and the almalinux share the same network.
 
 
-#multi containers are useful in sidecar patterns and proxy patterns. proxy means first proxy container gets the request, it checks whether request should be forwarded to main container or not. And sidecar container means, it will collect all the logs from the first contaner(as they share same storage, sidecar can access) and the send them to ELK(external for storing logs).
+# multi containers are useful in sidecar patterns and proxy patterns. proxy means first proxy container gets the request, it checks whether request should be forwarded to main container or not. And sidecar container means, it will collect all the logs from the first contaner(as they share same storage, sidecar can access) and the send them to ELK(external for storing logs).
 
-#catalogue, user, cart, shipping, payment, frontend can be in same pod as multiple containers but diff ports should be opened by containers..
+# catalogue, user, cart, shipping, payment, frontend can be in same pod as multiple containers but diff ports should be opened by containers....so using different container in the same pod is not a good approach in orchestration.
