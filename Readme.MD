@@ -56,6 +56,7 @@ work station
 
     eksctl delete cluster --config-file=eks.yaml
         # while deleteing a cluster, first delete the autoscaling group and then manually delete the EC2 instances and then finally delete the cluster.
+        # delete the node groups inside EKS. 
     By default our ec2 nodes will be created in the default-vpc
 
     Here, we can login to the ec2 instances(nodes), but we cannot login to the control plane which we see in tghe AWS console. ANd it is managed by AWS itself.
