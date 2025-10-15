@@ -17,3 +17,13 @@ spec:
 
 
 
+# kubect apply -f 07-env.yaml
+
+# kubectl exec -it envar-demo -- bash
+
+# env
+
+# After executing the line no 22(kubectl exec -it envar-demo -- bash) and 24(env) commands, we can see the environment variables inside the pod
+
+# exit --- to come out of the pod
+
