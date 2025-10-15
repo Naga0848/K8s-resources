@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: env-configmap
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+      envFrom:
+        - configMapRef:
+            name: pod-config   # name of the configmap i.e., 08-configmap.yaml
+
+# Commands
+
+# kubectl apply -f 09-pod-config.yaml
+
+# kubectl get pods
+
+# kubect exec -it env-configmap -- bash
+
+# env
+
+# Now, if we execute the line no 19(kubect exec -it env-configmap -- bash) and 21(env), we will be inside the pod(env-configmap) and we can see our configmap details, which we mentioned in our 08-configmap.yaml
+
+# exit, to come out of the pod
+
