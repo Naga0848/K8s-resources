@@ -31,6 +31,6 @@ spec:
 
 # we try to keep the configuration outside of pod definition. i.e configmap
 
-# And finally, we keep env variables and the configs in a configmap and we refer them inside the pod.
+# And finally, we keep env variables and the configs like db related in a configmap and we refer them inside the pod.
 
 
