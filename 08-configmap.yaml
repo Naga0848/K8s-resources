@@ -17,5 +17,3 @@ data:
   # kubectl get configmaps
 
       # now u can see the configmap with the name pod-config and we have to attach this to a pod, so for that we have to write a pod definition file
-
-  # 
