@@ -16,7 +16,8 @@ spec:
       port: 80 # service port
       targetPort: 80 # container port
 
-# A Classic loadbalancer will be created and all our nodes will be attached as a target groups and a specific port will be opened       
+# A Classic loadbalancer will be created and all our nodes will be attached as a target groups and a specific port will be opened on all the instances
+# And LB will change the ingress rules of the SG of the loadbalancer stating to allow all the traffic coming from the loadbalancer      
 # ==============================================
 
 # This is a pod definition.yaml
