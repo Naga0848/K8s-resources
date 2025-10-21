@@ -4,6 +4,20 @@ We will have a workstation
     - Kubectl to interact with cluster via AWS CLI
     - eksctl to install the kubernetes cluster
 
+# inorder to create k8s resources for roboshop project
+    please use the below images from joindevops
+
+        joindevops/cart
+        joindevops/catalogue
+        joindevops/mysql
+        joindevops/shipping
+        joindevops/payment
+        joindevops/user
+        joindevops/frontend
+        joindevops/mongodb
+
+
+
 # Points to remember when creating the cluster
  When you create an IAM user, make sure you give adminaccess to the user and while doing aws configure, please mention the region aswell along with access-key and secret-key
 
