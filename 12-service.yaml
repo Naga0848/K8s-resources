@@ -1,0 +1,36 @@
+# this is service.yaml
+# By default, when we dont mention any type of service, it creates a ClusterIP service
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+  labels:
+    purpose: service-demo
+spec:
+  selector:
+    purpose: service-demo
+    environment: dev
+    project: roboshop
+  ports:
+    - protocol: TCP
+      port: 80 # service port
+      targetPort: 80 # container port
+
+# ====================================================
+
+# this is pod definition file
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels:
+    purpose: service-demo
+    project: roboshop
+    environment: dev
+spec:
+  container:
+  - name: nginx
+    image: nginx
+
+
