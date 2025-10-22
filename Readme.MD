@@ -81,7 +81,7 @@ work station
 
 # Please refer to K8s-Objects-Versions.png to know which resource will have the what apiVersion in K8s
 
-=======================================================================================================
+=============================================================
 
 
 # Understanding PV, PVC and StorageClass
@@ -120,11 +120,3 @@ Pod -->	 PVC -->	PV 	  --> Storage
 
 Kid --> Mother --> UPI
 Pod --> PVC
-
-# Shipping Microservice
-
-**This service handles product catalog and inventory updates.**
-
-It connects to MongoDB and Redis for data persistence and caching.
-
-**Important:** Ensure Docker is running before deploying.
