@@ -115,8 +115,3 @@ work station
 
 
 
-Kid --> Mother --> Father --> Wallet
-Pod -->	 PVC -->	PV 	  --> Storage
-
-Kid --> Mother --> UPI
-Pod --> PVC
