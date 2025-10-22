@@ -70,7 +70,7 @@ work station
     eksctl create cluster --config-file=eks.yaml
 
     eksctl delete cluster --config-file=eks.yaml
-        # while deleteing a cluster, first delete the autoscaling group and then manually delete the EC2 instances and then finally delete the cluster.
+        # while deleting a cluster, first delete the autoscaling group and then manually delete the EC2 instances and then finally delete the cluster.
         # delete the node groups inside EKS console.
         #  Delete the cluster now
     By default our ec2 nodes will be created in the default-vpc
