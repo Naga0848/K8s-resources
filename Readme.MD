@@ -133,3 +133,11 @@ work station
     5. EBS size is fixed, EFS is elastic it automatically grows upto 48TB.
     6. EBS filesystem we can select ext4, EFS filesystem is already decided by AWS as NFS
     7. EBS will not have any SG attached, but EFS is in network, so there will be SG attached and 2049 should be allowed.
+
+
+# Understanding Commands
+
+    First we have to run the pv command i.e., kubectl apply for a PV
+        Here u can see that a PV or EBS is created
+    Second we have to run the pvc command i.e., kubectl apply for a PVC
+        Here u can see that EBS is mounted to the POD, if we mentioned the pod definition file in the yaml file
