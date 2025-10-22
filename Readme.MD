@@ -123,3 +123,13 @@ work station
             3. create EFS volume
             4. Allow port no 2049 in EFS SG from EC2 SG
             5. Create PV, PVC and mount to pod
+
+    EBS vs EFS
+    ===========
+    1. EFS can be anywhere in network, EBS should be in same AZ as in EC2
+    2. EBS can be accessed only by one instance at a time, EFS can be accessed by multiple instances
+    3. EBS is faster than EFS.
+    4. EBS is mainly used for OS and DB, EFS is used to store objects and files.
+    5. EBS size is fixed, EFS is elastic it automatically grows upto 48TB.
+    6. EBS filesystem we can select ext4, EFS filesystem is already decided by AWS as NFS
+    7. EBS will not have any SG attached, but EFS is in network, so there will be SG attached and 2049 should be allowed.
