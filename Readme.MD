@@ -86,9 +86,9 @@ work station
 
         EBS static provisioning
         =======================
-            1. Install EBS drivers
+            1. Install EBS drivers  kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.43  (should be installed on EKS)
             2. Provide access to EC2 instance through role, EBSCSIDriverPolicy
-            3. create volume in same az as in EC2 instance
+            3. create volume in same az as in EC2 instance  
             4. create PV, create PVC, create pod with nodeSelector option
 
     PV --> cluster level
