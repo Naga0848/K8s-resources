@@ -82,7 +82,7 @@ work station
 =============================================================
 
 
-# Understanding PV, PVC and StorageClass
+# Understanding PV, PVC and StorageClass (Elastic Block Storage)EBS and (Elastic File System)EFS
 
         EBS static provisioning
         =======================
@@ -111,5 +111,15 @@ work station
         This is a cluster level object. If we have a storageclass yaml file, we can directly create the PVC and POD definition files in the other yaml file
         Understand that StorageClass yaml file is different and PVC and POD definition files can together.
 
-
-
+# If we attach the policy to a single node, it gets attached to all the 3 nodes, because we are using same IAM role across all the nodes
+        EC2 >>> Security >> IAM Roles >> Add Permission >> Add the required policy
+    
+        EFS static provisioning
+        =======================
+            1. Install drivers  
+                kubectl kustomize \
+    "github.com/kubernetes-sigs/aws-efs-csi-driver/deploy/kubernetes/overlays/stable/ecr/?ref=release-2.1" > private-ecr-driver.yaml
+            2. Give permissions to nodes, EFSCSIDriverPolicy
+            3. create EFS volume
+            4. Allow port no 2049 in EFS SG from EC2 SG
+            5. Create PV, PVC and mount to pod
