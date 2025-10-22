@@ -81,5 +81,50 @@ work station
 
 # Please refer to K8s-Objects-Versions.png to know which resource will have the what apiVersion in K8s
 
-================================================
+=======================================================================================================
 
+
+# Understanding PV, PVC and StorageClass
+
+        EBS static provisioning
+        =======================
+            1. Install EBS drivers
+            2. Provide access to EC2 instance through role, EBSCSIDriverPolicy
+            3. create volume in same az as in EC2 instance
+            4. create PV, create PVC, create pod with nodeSelector option
+
+    PV --> cluster level
+    PVC --> namespace level
+
+    EKS admins control cluster level objects...
+
+    as a roboshop devops engineer, you need a disk to be created for your application,
+
+    we will raise a ticket for this. storage (GB), filesystem type(ext4), etc..it is approved by roboshop team lead/delivery lead. Storage team also checks this and it is approved their team leader....
+
+    then storage team creates the disk...
+
+    provide these disk details to EKS admin, then they create PV for us and tell us the name.
+
+    PV --> K8 resource, physical representation of the actual EBS storage.
+    PVC --> it is the claim done by pods to mount the storage  (here we create the PVC yaml file, and if we want this storage to be attached to a pod, then we mention the pod definition file in the same yaml file)
+
+    StorageClass --> k8 object used to create the volume dynamically...
+        This is a cluster level object. If we have a storageclass yaml file, we can directly create the PVC and POD definition files in the other yaml file
+        Understand that StorageClass yaml file is different and PVC and POD definition files can together.
+
+
+
+Kid --> Mother --> Father --> Wallet
+Pod -->	 PVC -->	PV 	  --> Storage
+
+Kid --> Mother --> UPI
+Pod --> PVC
+
+# Shipping Microservice
+
+**This service handles product catalog and inventory updates.**
+
+It connects to MongoDB and Redis for data persistence and caching.
+
+**Important:** Ensure Docker is running before deploying.
