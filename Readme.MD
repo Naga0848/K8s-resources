@@ -121,7 +121,7 @@ work station
     "github.com/kubernetes-sigs/aws-efs-csi-driver/deploy/kubernetes/overlays/stable/ecr/?ref=release-2.1" > private-ecr-driver.yaml
             2. Give permissions to nodes, EFSCSIDriverPolicy
             3. create EFS volume
-            4. Allow port no 2049 in EFS SG from EC2 SG
+            4. Allow port no 2049 in EFS SG from EC2 SG  (Go to SG of EFS > NFS, 2049 and now give the SG of EC2 nodes rather than giving IP and save the rules)
             5. Create PV, PVC and mount to pod
 
     EBS vs EFS
@@ -182,6 +182,7 @@ work station
         When provisioning EFS Dynamically (Here access points gets created, which are like EFS)the name of the accesspoint and PV will be same(please check)
             First create the StorageClass
             Create PVC, POD and Service in the different yaml file
-            
+            And finally, DATA will be accessed on the access points
+
 
         
