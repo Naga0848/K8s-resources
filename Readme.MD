@@ -192,7 +192,7 @@ work station
 
     Deployment vs Statefulset
     ==========================
-    1. Deployment is for stateless applications, Statefulset is stateful applications
+    1. Deployment is for stateless applications, Statefulset is for stateful applications
     2. PV and PVC is not mandatory for Deployment, but mandatory for stateful applications
     3. Statefulset need headless service... i.e no cluster IP
     4. Pods create in orderly manner in statefulset, Once first pod comes to running, then only other pod will create. While deletion reverse order follows
