@@ -177,7 +177,7 @@ work station
             Delete the PVC
             Delete PV
             Delete POD
-            And finally the Volume(EBS)
+            And finally the Volume(EBS or EFS)
 
         When provisioning EFS Dynamically (Here access points gets created, which are like EFS)the name of the accesspoint and PV will be same(please check)
             First create the StorageClass
