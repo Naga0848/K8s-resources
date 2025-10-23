@@ -142,9 +142,6 @@ work station
     Second we have to run the pvc command i.e., kubectl apply for a PVC
         Here u can see that EBS is mounted to the POD, if we mentioned the pod definition file in the yaml file
 
-
-=====================
-
   # Things to be remembered while creating EFS AND EBS
 
         when creating statically i.e., manually
@@ -186,3 +183,17 @@ work station
 
 
         
+# About Statefulsets
+
+    stateful applications --> DB
+
+    Deployment --> stateless applications not for stateful applications
+    Statefulset --> stateful applications.
+
+    Deployment vs Statefulset
+    ==========================
+    1. Deployment is for stateless applications, Statefulset is stateful applications
+    2. PV and PVC is not mandatory for Deployment, but mandatory for stateful applications
+    3. Statefulset need headless service... i.e no cluster IP
+    4. Pods create in orderly manner in statefulset, Once first pod comes to running, then only other pod will create. While deletion reverse order follows
+    5. Pod identities are preserved in statefulset, because if any pod crashes, statefulset create another pod with same name, so that communication is easy between pods..
