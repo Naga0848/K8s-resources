@@ -141,3 +141,47 @@ work station
         Here u can see that a PV or EBS is created
     Second we have to run the pvc command i.e., kubectl apply for a PVC
         Here u can see that EBS is mounted to the POD, if we mentioned the pod definition file in the yaml file
+
+
+=====================
+
+  # Things to be remembered while creating EFS AND EBS
+
+        when creating statically i.e., manually
+            we need to create PV, PVC, POD and service(LB) in the same yaml file
+
+            PV = physical storage = EBS Volume  (its a cluster level object)
+            PVC = we are using this to claim a volume for our pod
+            service = when we attached we volume to our pod, we have to access it right, as a result we are using the LB. And once everything got created, please take the LB created and hit it in the browser and we get 403 Forbiden error as we dont have anything inside our volume
+                Now, go to the location where your entire yaml file is loacted and perform the below commands to create a html file
+                    kubect exec -it nginx -- bash
+                    cd /usr/share/nginx/html 
+                    "<h1> Hi, i am from EBS Static </h1>" > index.html
+                    And when u hit the same browser with LB, we can see the ablove text.
+                    And if u try deleting the pod, we cannot acces the LB. gain, if  we create the pod, the EBS gets attached to the same pod
+                    Same happens with the EFSas well when provisioning statically
+
+        Understand that we have to use the nodeselector if we want to place a pod on the specific Node
+            For this, we have to see the labels which are on node  (kubectl get nodes -- labels)
+            From this we have to look for a label with region and use the same label as a selector in the pod definition file
+
+        When provisioning EBS Dynamically
+            First create the StorageClass 
+            And the PVC, POD and Service(LB) should be in a separate yaml file
+            Here, storageClass will take care of creating the PV for us.
+            Here Volume will be created by EKS ADMIN Team and we will make use of it by using our StorageClass
+            The StorageClass is one time creation
+            In PVC definition file, we have to mention the storageclass name and the disk will be attached to the desired pod.
+
+        Steps for deleting
+            Delete the PVC
+            Delete PV
+            Delete POD
+            And finally the Volume(EBS)
+
+        When provisioning EFS Dynamically (Here access points gets created, which are like EFS)the name of the accesspoint and PV will be same(please check)
+            First create the StorageClass
+            Create PVC, POD and Service in the different yaml file
+            
+
+        
