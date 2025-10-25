@@ -198,7 +198,10 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
     4. Pods create in orderly manner in statefulset, Once first pod comes to running, then only other pod will create. While deletion reverse order follows
     5. Pod identities are preserved in statefulset, because if any pod crashes, statefulset create another pod with same name, so that communication is easy between pods..
 
-#### Look at the namespace.yaml syntax
+
+#### understanding the different k8s resources and their yaml file syntaxes
+
+#### 1) namespace.yaml syntax
     apiVersion: v1
     kind: Namespace
     metadata: 
