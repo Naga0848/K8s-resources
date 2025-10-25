@@ -665,7 +665,7 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
             containers:
             - name: nginx
               image: nginx:latest
----
+
     apiVersion: v1
     kind: Service
     metadata:
