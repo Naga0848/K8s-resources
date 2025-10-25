@@ -21,12 +21,11 @@ We will have a workstation
 #### Points to remember when creating the cluster
  When you create an IAM user, make sure you give adminaccess to the user and while doing aws configure, please mention the region aswell along with access-key and secret-key
 
-work station
-============
-1. install docker
-2. run aws configure
-3. install eksctl for cluster creation
-4. install kubectl for cluster interaction
+#### work station
+    1. install docker
+    2. run aws configure
+    3. install eksctl for cluster creation
+    4. install kubectl for cluster interaction
 
 #### Steps to install K8s
 
