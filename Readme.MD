@@ -302,3 +302,47 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
         containers:
         - name: nginx
           image: nginx
+
+#### 6) Resource Limits	
+
+    Controls how much CPU and memory a container can use.
+
+    apiVersion: v1
+    kind: Pod
+    metadata:
+        name: resource-limits
+        labels:
+            env: dev-env
+            tier: frontend
+    spec:
+        containers:
+        - name: nginx
+          image: nginx
+        resources:
+            requests: # soft limit
+                memory: "68Mi"
+                cpu: "100m"
+            limits: # hard limit  (cannot extend beyond this)
+                memory: "128Mi"
+                cpu: "150m"
+
+
+    1 processor = 1000m, 250m = 0.25
+
+    kubectl top pods >>> command to see which pod specific resources
+
+    After doing a performance testing either archetict or the developers will confirm the resources limits to us
+
+    Understanding Horizontal Auto scaling and Vertical Auto scaling in a simple words
+
+    Vertical auto scaling
+        Understanding vertical scaling with an example
+        In general if u want to construct a firstfloor and secondfloor on the existing 20years old building
+        - you shouldn't stay in the house while remodelling (downtime) in our case, when u r increasing the resources manually, the application inside our container will not be available to the users
+        - your basement may not be strong to bear another 2 floors
+        ratherthan doing this u can take new land and construct two new houses(autoscaling)
+        so, we can understand that in VA, increasing the resouces limits from 2GB to 4GB in the same server
+
+    Horizontal auto scaling
+      rather than going to VA - companies prefer to go for the HA.
+      increasing the no of servers with te same resources i.e., adding two more servers of 2GB
