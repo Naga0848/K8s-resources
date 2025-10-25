@@ -199,7 +199,7 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
     5. Pod identities are preserved in statefulset, because if any pod crashes, statefulset create another pod with same name, so that communication is easy between pods..
 
 
-#### Now its time for understanding the different k8s resources and their yaml file syntaxes
+#### Now its time for understanding the different k8s resources and their yaml file syntax
 
 #### 1) namespace.yaml 
     
