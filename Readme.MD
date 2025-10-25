@@ -199,7 +199,7 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
     5. Pod identities are preserved in statefulset, because if any pod crashes, statefulset create another pod with same name, so that communication is easy between pods..
 
 
-#### understanding the different k8s resources and their yaml file syntaxes
+#### Now its time for understanding the different k8s resources and their yaml file syntaxes
 
 #### 1) namespace.yaml 
     
@@ -212,3 +212,15 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
         labels:
             name: robosh
             env: dev-env
+#### 2) pod.yaml
+
+    The smallest deployable unit—holds one or more containers i.e., everything in kubernetes is a pod
+
+    apiVersion: v1
+    kind: Pod
+    metadata:
+        name: nginx
+    spec:
+        containers:
+        - name: nginx
+    i     mage: nginx
