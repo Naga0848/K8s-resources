@@ -1,5 +1,7 @@
+#### This repo contains different kubernetes resources and their example yaml files
+
 Look at the K8s.png image to understand how kubectl, eksctl and docker works
-We will have a workstation 
+We will have a workstation i.e., using which we install the Docker, eksctl, kubectl, and aws configure
     - Docker for the images
     - Kubectl to interact with cluster via AWS CLI
     - eksctl to install the kubernetes cluster
@@ -21,7 +23,7 @@ We will have a workstation
 #### Points to remember when creating the cluster
  When you create an IAM user, make sure you give adminaccess to the user and while doing aws configure, please mention the region aswell along with access-key and secret-key
 
-#### work station
+#### On a work station
     1. install docker
     2. run aws configure
     3. install eksctl for cluster creation
@@ -78,6 +80,8 @@ We will have a workstation
 
 #### Please refer to K8s-Objects-Versions.png to know which resource will have the what apiVersion in K8s
 
+
+#### Volumes
 #### Understanding PV, PVC and StorageClass (Elastic Block Storage)EBS and (Elastic File System)EFS
 
         EBS static provisioning
