@@ -389,7 +389,7 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
 
     And finally, we keep env variables and the configs like db related in a configmap and we refer them inside the pod.
 
-#### 8) ConfigMap
+#### 8) ConfigMap and 9) Pod with ConfigMap
 
     Stores non-sensitive configuration data as key-value pairs.
 
@@ -419,7 +419,7 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
     now u can see the configmap with the name pod-config and we have to attach this or refer to a pod, so for that we have to write a pod definition file
     And we have to refer the configmap in a pod using envfrom
 
-    Pod with ConfigMap	=== A pod that loads config values from a ConfigMap.
+    Below is the Pod with ConfigMap	=== A pod that loads config values from a ConfigMap.
 
     apiVersion: v1
     kind: Pod
@@ -442,3 +442,52 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
     Now, if we execute the line no (kubect exec -it env-configmap -- bash) and (env), we will be inside the pod(env-configmap) and we can see our 
     configmap details, which we mentioned in our 08-configmap.yaml
     exit, to come out of the pod
+
+#### 10) secret and 11) Pod with Secret
+
+    Secret -- Stores sensitive data like passwords or tokens securely.
+
+    apiVersion: v1
+    kind: Secret
+    metadata:
+        name: pod-secret
+        labels:
+        purpose: secret
+        env: dev
+    type: Opaque   # as we are defining the data
+    data:
+        username: "YWRtaW4="       # this is fron=m encoding
+        password: "YWRtaW4zMjE="   # this is fron=m encoding
+
+    please refer to the base64-encoding.png to understand how we encoded the username and passsword
+    kubectl apply -f 10-secret.yaml
+    kubectl get pods
+       now u can see the secret with the name pod-secret and we have to attach this to a pod, so for that we have to write a pod definition file 
+
+    Pod with Secret ---- A pod that uses secret values for secure configuration.
+
+    apiVersion: v1
+    kind: Pod
+    metadata:
+        name: env-secret
+    spec:
+        containers:
+        - name: nginx
+          image: nginx
+            envFrom:
+            - secretRef:
+                name: pod-secret
+
+    here are we are refering the secrets using envFrom
+
+    Steps to execute the above yaml files
+    
+    kubectl apply -f 11-pod-secret.yaml
+    kubectl get pods
+    kubectl exec -it env-secret -- bash 
+    env
+    now we can see the username and password which we mentioned in 10-secret.yaml
+    And this is not say way to mention the secrets here. Please refer, base64-decoding.png to know how we can decode the password
+    So, we have to encrypt the screts, not encoding
+    encrypting means publickkey and privatekeys i.e., who ever has both the keys only can view the password. where as encoding means, who ever knows the 
+    encoded value, they can decrypt and view the password and can miss use it.
