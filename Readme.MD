@@ -372,14 +372,14 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
             value: "SIVAKUMAR REDDY M"
 
     Steps to execute the above yaml file
-    
+
     kubect apply -f 07-env.yaml
 
     kubectl exec -it envar-demo -- bash
 
     env
 
-    After executing the line no 22(kubectl exec -it envar-demo -- bash) and 24(env) commands, we can see the environmen
+    After executing (kubectl exec -it envar-demo -- bash) and (env) commands, we can see the environmen
 
     exit --- to come out of the pod
 
@@ -389,6 +389,56 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
 
     And finally, we keep env variables and the configs like db related in a configmap and we refer them inside the pod.
 
+#### 8) ConfigMap
 
+    Stores non-sensitive configuration data as key-value pairs.
 
+    When you create a Pod, you can set environment variables for the containers that run in the Pod. To set environment variables, include the env or 
+    envFrom field in the configuration file.
 
+    The env and envFrom fields have different effects.
+    env -- allows you to set environment variables for a container, specifying a value directly for each variable that you name.
+    envFrom -- allows you to set environment variables for a container by referencing either a ConfigMap or a Secret. When you use envFrom, all the 
+    key-value pairs in the referenced ConfigMap or Secret are set as environment variables for the container. You can also specify a common prefix string.
+
+    apiVersion: v1
+    kind: ConfigMap
+    metadata:
+        name: pod-config
+        labels:
+            purpose: config
+            env: dev
+    data:
+        COURSE: "DevOps with AWS"
+        DURATION: "120HRS"
+        TRAINER: "SIVAKUMAR REDDY M"
+
+    kubectl apply -f 08-configmap.yaml 
+    kubectl get configmaps
+
+    now u can see the configmap with the name pod-config and we have to attach this or refer to a pod, so for that we have to write a pod definition file
+    And we have to refer the configmap in a pod using envfrom
+
+    Pod with ConfigMap	
+
+    apiVersion: v1
+    kind: Pod
+    metadata:
+        name: env-configmap
+    spec:
+        containers:
+        - name: nginx
+          image: nginx
+          envFrom:
+            - configMapRef:
+                name: pod-config   # name of the configmap i.e., 08-configmap.yaml
+
+    Steps to execute the above yaml file
+    
+    kubectl apply -f 09-pod-config.yaml
+    kubectl get pods
+    kubect exec -it env-configmap -- bash
+    env
+    Now, if we execute the line no (kubect exec -it env-configmap -- bash) and (env), we will be inside the pod(env-configmap) and we can see our 
+    configmap details, which we mentioned in our 08-configmap.yaml
+    exit, to come out of the pod
