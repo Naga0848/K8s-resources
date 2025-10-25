@@ -144,19 +144,19 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
 
 #### Things to be remembered while creating EFS AND EBS
 
-        when creating statically i.e., manually
-            we need to create PV, PVC, POD and service(LB) in the same yaml file
+    when creating statically i.e., manually
+        we need to create PV, PVC, POD and service(LB) in the same yaml file
 
-            PV = physical storage = EBS Volume  (its a cluster level object)
-            PVC = we are using this to claim a volume for our pod
-            service = when we attached we volume to our pod, we have to access it right, as a result we are using the LB. And once everything got created, please take the LB created and hit it in the browser and we get 403 Forbiden error as we dont have anything inside our volume
-                Now, go to the location where your entire yaml file is loacted and perform the below commands to create a html file
-                    kubect exec -it nginx -- bash
-                    cd /usr/share/nginx/html 
-                    "<h1> Hi, i am from EBS Static </h1>" > index.html
-                    And when u hit the same browser with LB, we can see the ablove text.
-                    And if u try deleting the pod, we cannot acces the LB. gain, if  we create the pod, the EBS gets attached to the same pod
-                    Same happens with the EFSas well when provisioning statically
+        PV = physical storage = EBS Volume  (its a cluster level object)
+        PVC = we are using this to claim a volume for our pod
+        service = when we attached we volume to our pod, we have to access it right, as a result we are using the LB. And once everything got created, please take the LB created and hit it in the browser and we get 403 Forbiden error as we dont have anything inside our volume
+            Now, go to the location where your entire yaml file is loacted and perform the below commands to create a html file
+                kubect exec -it nginx -- bash
+                cd /usr/share/nginx/html 
+                "<h1> Hi, i am from EBS Static </h1>" > index.html
+                And when u hit the same browser with LB, we can see the ablove text.
+                And if u try deleting the pod, we cannot acces the LB. gain, if  we create the pod, the EBS gets attached to the same pod
+                Same happens with the EFSas well when provisioning statically
 
         Understand that we have to use the nodeselector if we want to place a pod on the specific Node
             For this, we have to see the labels which are on node  (kubectl get nodes -- labels)
