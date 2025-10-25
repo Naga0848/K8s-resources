@@ -197,3 +197,12 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
     3. Statefulset need headless service... i.e no cluster IP
     4. Pods create in orderly manner in statefulset, Once first pod comes to running, then only other pod will create. While deletion reverse order follows
     5. Pod identities are preserved in statefulset, because if any pod crashes, statefulset create another pod with same name, so that communication is easy between pods..
+
+#### Look at the namespace.yaml syntax
+    apiVersion: v1
+    kind: Namespace
+    metadata: 
+        name: roboshop
+        labels:
+            name: robosh
+            env: dev-env
