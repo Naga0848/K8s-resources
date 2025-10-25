@@ -491,3 +491,113 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
     So, we have to encrypt the screts, not encoding
     encrypting means publickkey and privatekeys i.e., who ever has both the keys only can view the password. where as encoding means, who ever knows the 
     encoded value, they can decrypt and view the password and can miss use it.
+
+#### 12) Service
+
+    For some parts of your application (for example, frontends) you may want to expose a Service onto an external IP address, one that's accessible from 
+    outside of your cluster i.e., exposes pods to other services or external traffic.
+
+    Here we are using both pod and service in a single yaml file for better understanding.
+
+    If we dont mention any type of service, it is considered as ClusterIP service
+
+    apiVersion: v1
+    kind: Service
+    metadata:
+        name: nginx
+        labels:
+        purpose: service-demo
+    spec:
+        selector:
+            purpose: service-demo
+            project: roboshop
+            environment: dev
+        ports:
+          - protocol: TCP
+            port: 80 # service port
+            targetPort: 80 # container port
+----------
+    apiVersion: v1
+    kind: Pod
+    metadata:
+        name: nginx
+        labels:
+            purpose: service-demo
+            project: roboshop
+            environment: dev
+    spec:
+        containers:
+        - name: nginx
+          image: nginx
+
+    In gereral, there are three types of services in kubernetes
+    ClusterIP
+    Exposes the Service on a cluster-internal IP. Choosing this value makes the Service only reachable from within the cluster. This is the default that is used if you don't explicitly specify a type for a Service. You can expose the Service to the public internet using an Ingress or a Gateway.
+    NodePort
+    Exposes the Service on each Node's IP at a static port (the NodePort). To make the node port available, Kubernetes sets up a cluster IP address, the same as if you had requested a Service of type: ClusterIP.
+    LoadBalancer
+    Exposes the Service externally using an external load balancer. Kubernetes does not directly offer a load balancing component; you must provide one, or you can integrate your Kubernetes cluster with a cloud provider.
+
+   NodePort Service --- Makes a pod accessible on a static port of each node.
+
+   apiVersion: v1
+   kind: Service
+   metadata:
+     name: nginx-np
+     labels:
+        purpose: service-np-demo
+   spec:
+   type: NodePort
+   selector:
+     purpose: service-np-demo
+     project: roboshop
+     environment: dev
+   ports:
+     - protocol: TCP
+       port: 80 # service port
+       targetPort: 80 # container port
+--------------
+    apiVersion: v1
+    kind: Pod
+    metadata:
+        name: nginx-np
+        labels:
+            purpose: service-np-demo
+            project: roboshop
+            environment: dev
+    spec:
+        containers:
+        - name: nginx
+          image: nginx
+    
+    LoadBalancer Service ---- Exposes a pod to the internet via a cloud load balancer.
+
+    apiVersion: v1
+    kind: Service
+    metadata:
+        name: nginx-lb
+        labels:
+            purpose: service-lb-demo
+    spec:
+        type: LoadBalancer
+        selector:
+            purpose: service-lb-demo
+            project: roboshop
+            environment: dev
+        ports:
+          - protocol: TCP
+            port: 80 # service port
+            targetPort: 80 # container port
+----------------------
+    apiVersion: v1
+    kind: Pod
+    metadata:
+        name: nginx-lb
+        labels:
+            purpose: service-lb-demo
+            project: roboshop
+            environment: dev
+    spec:
+        containers:
+        - name: nginx
+          image: nginx
