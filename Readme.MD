@@ -229,7 +229,7 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
 #### 3) Multi-container Pod	
 
     A pod running multiple containers can have the same container or the other containers....
-    
+
     apiVersion: v1
     kind: Pod
     metadata:
@@ -262,3 +262,23 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
 
     catalogue, user, cart, shipping, payment, frontend can be in same pod as multiple containers but diff ports should be opened by containers....so using 
     different container in the same pod is not a good approach in orchestration.
+
+#### 4) Labels 
+
+    Key-value tags used to identify and group resources.
+
+    apiVersion: v1
+    kind: Pod
+    metadata:
+        name: labels
+        labels:
+            project: rob
+            env: dev-env
+            tier: fronte
+    spec:
+        containers:
+        - name: nginx
+          image: nginx
+
+    lables are used as selectors for other resources inside kuberentes... useful for filtering resources. lables values we can't keep long values, only 63char
+
