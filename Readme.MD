@@ -556,7 +556,7 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
      - protocol: TCP
        port: 80 # service port
        targetPort: 80 # container port
---------------
+--
     apiVersion: v1
     kind: Pod
     metadata:
