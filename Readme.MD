@@ -647,7 +647,7 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
         labels:    # deployment labels
             purpose: deployment-demo
             project: roboshop
-    a       pp: nginx
+            app: nginx
     spec:
         replicas: 3  # These are the labels replica set use to create pod replicas, this should match pod labels
         selector:
@@ -682,7 +682,7 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
             port: 80 # service port
             targetPort: 80 # container port
 
-     Understand that pod is a subset of replicaset and replicaset is a subset of Deployment
+    Understand that pod is a subset of replicaset and replicaset is a subset of Deployment
 
     So, if we create a deployment, k8s will create a deployment, replicaset and a pod.
 
