@@ -228,7 +228,8 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
 
 #### 3) Multi-container Pod	
 
-    A pod running multiple containers that work together.
+    A pod running multiple containers can have the same container or the other containers....
+    
     apiVersion: v1
     kind: Pod
     metadata:
