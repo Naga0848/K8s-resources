@@ -557,7 +557,7 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
         port: 80 # service port
         targetPort: 80 # container port
 
-    apiVersion: v1    # this is a pod definition file
+    apiVersion: v1    # this is a pod definition file for NodePort service
     kind: Pod
     metadata:
         name: nginx-np
@@ -589,7 +589,7 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
             port: 80 # service port
             targetPort: 80 # container port
 
-    apiVersion: v1     # this is a pod definition file
+    apiVersion: v1     # this is a pod definition file for loadbalancer service
     kind: Pod
     metadata:
         name: nginx-lb
