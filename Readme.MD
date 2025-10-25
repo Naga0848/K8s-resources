@@ -516,7 +516,8 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
           - protocol: TCP
             port: 80 # service port
             targetPort: 80 # container port
-    apiVersion: v1
+
+    apiVersion: v1   # this is a pod definition file
     kind: Pod
     metadata:
         name: nginx
@@ -556,7 +557,7 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
         port: 80 # service port
         targetPort: 80 # container port
 
-    apiVersion: v1
+    apiVersion: v1    # this is a pod definition file
     kind: Pod
     metadata:
         name: nginx-np
@@ -587,8 +588,8 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
           - protocol: TCP
             port: 80 # service port
             targetPort: 80 # container port
-----------------------
-    apiVersion: v1
+
+    apiVersion: v1     # this is a pod definition file
     kind: Pod
     metadata:
         name: nginx-lb
