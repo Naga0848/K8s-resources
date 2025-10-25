@@ -346,3 +346,49 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
     Horizontal auto scaling
       rather than going to VA - companies prefer to go for the HA.
       increasing the no of servers with te same resources i.e., adding two more servers of 2GB
+
+#### 7) Environment Variables	
+
+    When you create a Pod, you can set environment variables for the containers that run in the Pod. To set environment variables, include the env or envFrom field in the configuration file.
+
+    The env and envFrom fields have different effects.
+    env -- allows you to set environment variables for a container, specifying a value directly for each variable that you name.
+    envFrom -- allows you to set environment variables for a container by referencing either a ConfigMap or a Secret. When you use envFrom, all the key-value pairs in the referenced ConfigMap or Secret are set as environment variables for the container. You can also specify a common prefix string.
+
+    apiVersion: v1
+    kind: Pod
+    metadata:
+        name: envar-demo
+        labels:
+        purpose: demonstrate-envars
+    spec:
+        containers:
+        - name: nginx
+          image: nginx
+          env:
+          - name: COURSE
+            value: "KUBERENETS"
+          - name: TRAINER
+            value: "SIVAKUMAR REDDY M"
+
+    Steps to execute the above yaml file
+    
+    kubect apply -f 07-env.yaml
+
+    kubectl exec -it envar-demo -- bash
+
+    env
+
+    After executing the line no 22(kubectl exec -it envar-demo -- bash) and 24(env) commands, we can see the environmen
+
+    exit --- to come out of the pod
+
+    code and configuration. try to keep configuration always outside(loose coupling)
+
+    we try to keep the configuration outside of pod definition. i.e configmap
+
+    And finally, we keep env variables and the configs like db related in a configmap and we refer them inside the pod.
+
+
+
+
