@@ -389,7 +389,7 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
 
     And finally, we keep env variables and the configs like db related in a configmap and we refer them inside the pod.
 
-#### 8) ConfigMap   and    9) Pod with ConfigMap
+####    8) ConfigMap   and    9) Pod with ConfigMap
 
     Stores non-sensitive configuration data as key-value pairs.
 
@@ -443,7 +443,7 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
     configmap details, which we mentioned in our 08-configmap.yaml
     exit, to come out of the pod
 
-#### 10) secret   and   11) Pod with Secret
+####    10) secret   and   11) Pod with Secret
 
     Secret -- Stores sensitive data like passwords or tokens securely.
 
@@ -492,7 +492,7 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
     encrypting means publickkey and privatekeys i.e., who ever has both the keys only can view the password. where as encoding means, who ever knows the 
     encoded value, they can decrypt and view the password and can miss use it.
 
-#### 12) Service   13) service-np.yaml   and   14)service-lb.yaml
+####   12) Service   13) service-np.yaml   and   14)service-lb.yaml
 
     For some parts of your application (for example, frontends) you may want to expose a Service onto an external IP address, one that's accessible from 
     outside of your cluster i.e., exposes pods to other services or external traffic.
