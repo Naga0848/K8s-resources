@@ -613,21 +613,18 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
     kind: ReplicaSet
     metadata:
         name: nginx
-  # replica set labels
-        labels:
+        labels:       # replica set labels
             purpose: rs-demo
             project: roboshop
             app: nginx
     spec:
         replicas: 2
-  # These are the labels replica set use to create pod replicas, this should match pod labels
-    selector:
-        matchLabels:
-            purpose: rs-demo
-            project: roboshop
-            app: nginx
-  # This is pod definition
-    template:
+        selector:   # These are the labels replica set use to create pod replicas, this should match pod labels
+            matchLabels:
+                purpose: rs-demo
+                project: roboshop
+                app: nginx
+    template:      # This is pod definition
         metadata:
             labels:
                 purpose: rs-demo
