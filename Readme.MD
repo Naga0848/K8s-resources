@@ -201,7 +201,10 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
 
 #### understanding the different k8s resources and their yaml file syntaxes
 
-#### 1) namespace.yaml syntax
+#### 1) namespace.yaml 
+    
+    A way to organize and isolate groups of resources in a cluster.
+
     apiVersion: v1
     kind: Namespace
     metadata: 
