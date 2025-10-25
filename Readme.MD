@@ -223,4 +223,4 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
     spec:
         containers:
         - name: nginx
-    i     mage: nginx
+          image: nginx
