@@ -212,6 +212,7 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
         labels:
             name: robosh
             env: dev-env
+
 #### 2) pod.yaml
 
     The smallest deployable unit that holds one or more containers i.e., everything in kubernetes is a pod
@@ -224,3 +225,39 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
         containers:
         - name: nginx
           image: nginx
+
+#### 3) Multi-container Pod	
+
+    A pod running multiple containers that work together.
+    apiVersion: v1
+    kind: Pod
+    metadata:
+        name: multi-containe
+        labels:  
+            project: roboshop
+            env: dev-env
+    spec:
+        containers:
+        - name: nginx
+          image: nginx
+        - name: almalinux
+          image: almalinux:9
+    
+    kubectl apply -f 03-multicontainer.yaml   >>> command to run the multicontainer pod
+
+    here when we try to create a pod, we get crashloopbackof error for the second image, as we dont have any deamon or command to run the almalinux 
+    continuosly. Or we should have some application inside almalinux to keep it running continuosly.In this case we are using a sleep command CMD ["sleep","1000s"]in the dockerfile itself to keep the almalinux live upto 1000s and then terminate.
+
+    Sometimes even though we get the error, in that case we have to directly delete the pod and then re-create a new one.
+
+    kubectl exec -it multicontainer -c almalinux --bash (to login to the second container) within the multicontainer pod.
+
+    curl localhost
+
+    even after logging into to the second container, we could still see the nginx welcome page. This is because the nginx and the almalinux share the same 
+    network.
+
+    multi containers are useful in side car patterns and proxy patterns. proxy means first proxy container gets the request, it checks whether request should be forwarded to main container or not. And sidecar container means, it will collect all the logs from the first contaner(as they share same storage which canbe accessed by sidecar as well) and then send them to ELK(external for storing logs).
+
+    catalogue, user, cart, shipping, payment, frontend can be in same pod as multiple containers but diff ports should be opened by containers....so using 
+    different container in the same pod is not a good approach in orchestration.
