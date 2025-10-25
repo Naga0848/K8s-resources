@@ -265,7 +265,7 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
 
 #### 4) Labels 
 
-    Key-value tags used to identify and group resources.
+    Key-value tags used to identify and group resources kubernetes 
 
     apiVersion: v1
     kind: Pod
@@ -280,5 +280,25 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
         - name: nginx
           image: nginx
 
-    lables are used as selectors for other resources inside kuberentes... useful for filtering resources. lables values we can't keep long values, only 63char
+    Lables are used as selectors for other resources inside kuberentes... useful for filtering resources. lables values we can't keep long values, only 63char
 
+#### 5) Annotations
+
+    Annotations in Kubernetes are similar to labels, it is a ke-value pair but not used as selectors for identifying other resources. Annotations are used for provisioning the external resources to k8s. We keep external information like build url, image registery etc..
+    Annotations values can be upto 256char
+    apiVersion: v1
+    kind: Pod
+    metadata:
+        name: annotati
+        labels:
+            project: rob
+            component: m
+            tier: backen
+            environment: dev
+        annotations:
+            description: "This pod is created to demonstrate pod annotations"
+            jenkins: "https://jenkins.com/build/job/roboshop-catalouge/3"
+    spec:
+        containers:
+        - name: nginx
+          image: nginx
