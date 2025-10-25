@@ -492,7 +492,7 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
     encrypting means publickkey and privatekeys i.e., who ever has both the keys only can view the password. where as encoding means, who ever knows the 
     encoded value, they can decrypt and view the password and can miss use it.
 
-#### 12) Service
+#### 12) Service 13) service-np.yaml and 14)service-lb.yaml
 
     For some parts of your application (for example, frontends) you may want to expose a Service onto an external IP address, one that's accessible from 
     outside of your cluster i.e., exposes pods to other services or external traffic.
@@ -537,7 +537,7 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
 
     NodePort
     Exposes the Service on each Node's IP at a static port (the NodePort). To make the node port available, Kubernetes sets up a cluster IP address, the same as if you had requested a Service of type: ClusterIP.
-    
+
     LoadBalancer
     Exposes the Service externally using an external load balancer. Kubernetes does not directly offer a load balancing component; you must provide one, or you can integrate your Kubernetes cluster with a cloud provider.
 
