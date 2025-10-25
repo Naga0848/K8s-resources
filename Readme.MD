@@ -456,8 +456,8 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
         env: dev
     type: Opaque   # as we are defining the data
     data:
-        username: "YWRtaW4="       # this is fron=m encoding
-        password: "YWRtaW4zMjE="   # this is fron=m encoding
+        username: "YWRtaW4="       # this is from encoding
+        password: "YWRtaW4zMjE="   # this is from encoding
 
     please refer to the base64-encoding.png to understand how we encoded the username and passsword
     kubectl apply -f 10-secret.yaml
@@ -481,7 +481,7 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
     here are we are refering the secrets using envFrom
 
     Steps to execute the above yaml files
-    
+
     kubectl apply -f 11-pod-secret.yaml
     kubectl get pods
     kubectl exec -it env-secret -- bash 
