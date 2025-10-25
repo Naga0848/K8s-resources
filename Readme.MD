@@ -604,3 +604,40 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
         containers:
         - name: nginx
           image: nginx
+
+####    15) replicase
+
+    Ensures a specified number of pod replicas are running.
+
+    apiVersion: apps/v1
+    kind: ReplicaSet
+    metadata:
+        name: nginx
+  # replica set labels
+        labels:
+            purpose: rs-demo
+            project: roboshop
+            app: nginx
+    spec:
+        replicas: 2
+  # These are the labels replica set use to create pod replicas, this should match pod labels
+    selector:
+        matchLabels:
+            purpose: rs-demo
+            project: roboshop
+            app: nginx
+  # This is pod definition
+    template:
+        metadata:
+            labels:
+                purpose: rs-demo
+                project: roboshop
+                app: nginx
+        spec:
+            containers:
+            - name: nginx
+              image: nginx:stable-perl
+
+
+    Pod is the subset of replicaset
+
