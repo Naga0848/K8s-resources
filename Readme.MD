@@ -419,7 +419,7 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
     now u can see the configmap with the name pod-config and we have to attach this or refer to a pod, so for that we have to write a pod definition file
     And we have to refer the configmap in a pod using envfrom
 
-    Pod with ConfigMap	
+    Pod with ConfigMap	=== A pod that loads config values from a ConfigMap.
 
     apiVersion: v1
     kind: Pod
