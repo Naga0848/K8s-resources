@@ -84,12 +84,12 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
 #### Volumes
 #### Understanding PV, PVC and StorageClass (Elastic Block Storage)EBS and (Elastic File System)EFS
 
-        EBS static provisioning
-        =======================
-            1. Install EBS drivers  kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.43  (should be installed on EKS)
-            2. Provide access to EC2 instance through role, EBSCSIDriverPolicy
-            3. create volume in same az as in EC2 instance  
-            4. create PV, create PVC, create pod with nodeSelector option
+    EBS static provisioning
+    =======================
+        1. Install EBS drivers  kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.43  (should be installed on EKS)
+        2. Provide access to EC2 instance through role, EBSCSIDriverPolicy
+        3. create volume in same az as in EC2 instance  
+        4. create PV, create PVC, create pod with nodeSelector option
 
     PV --> cluster level
     PVC --> namespace level
@@ -114,15 +114,15 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
 #### If we attach the policy to a single node, it gets attached to all the 3 nodes, because we are using same IAM role across all the nodes
         EC2 >>> Security >> IAM Roles >> Add Permission >> Add the required policy
     
-        EFS static provisioning
-        =======================
-            1. Install drivers  
-                kubectl kustomize \
+    EFS static provisioning
+    =======================
+        1. Install drivers  
+            kubectl kustomize \
     "github.com/kubernetes-sigs/aws-efs-csi-driver/deploy/kubernetes/overlays/stable/ecr/?ref=release-2.1" > private-ecr-driver.yaml
-            2. Give permissions to nodes, EFSCSIDriverPolicy
-            3. create EFS volume
-            4. Allow port no 2049 in EFS SG from EC2 SG  (Go to SG of EFS > NFS, 2049 and now give the SG of EC2 nodes rather than giving IP and save the rules)
-            5. Create PV, PVC and mount to pod
+        2. Give permissions to nodes, EFSCSIDriverPolicy
+        3. create EFS volume
+        4. Allow port no 2049 in EFS SG from EC2 SG  (Go to SG of EFS > NFS, 2049 and now give the SG of EC2 nodes rather than giving IP and save the rules)
+        5. Create PV, PVC and mount to pod
 
     EBS vs EFS
     ===========
