@@ -4,7 +4,7 @@ We will have a workstation
     - Kubectl to interact with cluster via AWS CLI
     - eksctl to install the kubernetes cluster
 
-# inorder to create k8s resources for roboshop project
+#### inorder to create k8s resources for roboshop project
     please use the below images from joindevops
 
         joindevops/cart
@@ -18,7 +18,7 @@ We will have a workstation
 
 
 
-# Points to remember when creating the cluster
+#### Points to remember when creating the cluster
  When you create an IAM user, make sure you give adminaccess to the user and while doing aws configure, please mention the region aswell along with access-key and secret-key
 
 work station
@@ -28,7 +28,7 @@ work station
 3. install eksctl for cluster creation
 4. install kubectl for cluster interaction
 
-# Steps to install K8s
+#### Steps to install K8s
 
 # 1) create a t3.medium ec2 instance and install aws cli on it and login via cli
 
@@ -65,7 +65,7 @@ work station
     kubectl version
 
 
-# Finally After installing the eksctl and kubectl, we have to use eks.yaml file(managenodegroup) and create our eks cluster
+#### Finally After installing the eksctl and kubectl, we have to use eks.yaml file(managenodegroup) and create our eks cluster
 
     eksctl create cluster --config-file=eks.yaml
 
@@ -77,12 +77,9 @@ work station
 
     Here, we can login to the ec2 instances(nodes), but we cannot login to the control plane which we see in tghe AWS console. ANd it is managed by AWS itself.
 
-# Please refer to K8s-Objects-Versions.png to know which resource will have the what apiVersion in K8s
+#### Please refer to K8s-Objects-Versions.png to know which resource will have the what apiVersion in K8s
 
-=============================================================
-
-
-# Understanding PV, PVC and StorageClass (Elastic Block Storage)EBS and (Elastic File System)EFS
+#### Understanding PV, PVC and StorageClass (Elastic Block Storage)EBS and (Elastic File System)EFS
 
         EBS static provisioning
         =======================
@@ -111,7 +108,7 @@ work station
         This is a cluster level object. If we have a storageclass yaml file, we can directly create the PVC and POD definition files in the other yaml file
         Understand that StorageClass yaml file is different and PVC and POD definition files can together.
 
-# If we attach the policy to a single node, it gets attached to all the 3 nodes, because we are using same IAM role across all the nodes
+#### If we attach the policy to a single node, it gets attached to all the 3 nodes, because we are using same IAM role across all the nodes
         EC2 >>> Security >> IAM Roles >> Add Permission >> Add the required policy
     
         EFS static provisioning
@@ -135,14 +132,14 @@ work station
     7. EBS will not have any SG attached, but EFS is in network, so there will be SG attached and 2049 should be allowed.
 
 
-# Understanding Commands
+#### Understanding Commands
 
     First we have to run the pv command i.e., kubectl apply for a PV
         Here u can see that a PV or EBS is created
     Second we have to run the pvc command i.e., kubectl apply for a PVC
         Here u can see that EBS is mounted to the POD, if we mentioned the pod definition file in the yaml file
 
-  # Things to be remembered while creating EFS AND EBS
+#### Things to be remembered while creating EFS AND EBS
 
         when creating statically i.e., manually
             we need to create PV, PVC, POD and service(LB) in the same yaml file
@@ -183,7 +180,7 @@ work station
 
 
         
-# About Statefulsets
+#### Understanding  About Statefulsets
 
     stateful applications --> DB
 
