@@ -29,13 +29,13 @@ We will have a workstation
 
 #### Steps to install K8s
 
-# 1) create a t3.medium ec2 instance and install aws cli on it and login via cli
+#### 1) create a t3.medium ec2 instance and install aws cli on it and login via cli
 
     aws configure
     Access Key ID: create via AWS IAM
     Secret Key ID: create via AWS IAM
 
-# 2) Install Docker 
+#### 2) Install Docker 
 
     sudo dnf -y install dnf-plugins-core
     sudo dnf config-manager --add-repo https://download.docker.com/linux/rhel/docker-ce.repo
@@ -46,7 +46,7 @@ We will have a workstation
     sudo usermod -aG docker ec2-user
     exit, after adding normal user and re-login and start using the docker commands without giving sudo
 
-# 3) eksctl Installation  (it is a command line tool)
+#### 3) eksctl Installation  (it is a command line tool)
 
     ARCH=amd64
     PLATFORM=$(uname -s)_$ARCH
@@ -56,7 +56,7 @@ We will have a workstation
     sudo install -m 0755 /tmp/eksctl /usr/local/bin && rm /tmp/eksctl
     eksctl version
 
-# 4) Kubectl installation
+#### 4) Kubectl installation
 
     curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.33.0/2025-05-01/bin/linux/amd64/kubectl
     chmod +x ./kubectl   >> execution permission
