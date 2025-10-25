@@ -538,25 +538,25 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
     LoadBalancer
     Exposes the Service externally using an external load balancer. Kubernetes does not directly offer a load balancing component; you must provide one, or you can integrate your Kubernetes cluster with a cloud provider.
 
-   NodePort Service --- Makes a pod accessible on a static port of each node.
+    NodePort Service --- Makes a pod accessible on a static port of each node.
 
-   apiVersion: v1
-   kind: Service
-   metadata:
+    apiVersion: v1
+    kind: Service
+    metadata:
      name: nginx-np
      labels:
         purpose: service-np-demo
-   spec:
-   type: NodePort
-   selector:
-     purpose: service-np-demo
-     project: roboshop
-     environment: dev
-   ports:
-     - protocol: TCP
-       port: 80 # service port
-       targetPort: 80 # container port
---
+    spec:
+    type: NodePort
+    selector:
+      purpose: service-np-demo
+      project: roboshop
+      environment: dev
+    ports:
+      - protocol: TCP
+        port: 80 # service port
+        targetPort: 80 # container port
+
     apiVersion: v1
     kind: Pod
     metadata:
