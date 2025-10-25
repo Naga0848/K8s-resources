@@ -214,7 +214,7 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
             env: dev-env
 #### 2) pod.yaml
 
-    The smallest deployable unit—holds one or more containers i.e., everything in kubernetes is a pod
+    The smallest deployable unit that holds one or more containers i.e., everything in kubernetes is a pod
 
     apiVersion: v1
     kind: Pod
