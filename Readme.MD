@@ -638,3 +638,51 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
 
     Pod is the subset of replicaset
 
+####   16) deployment 
+
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+        name: nginx
+        labels:    # deployment labels
+            purpose: deployment-demo
+            project: roboshop
+    a       pp: nginx
+    spec:
+        replicas: 3  # These are the labels replica set use to create pod replicas, this should match pod labels
+        selector:
+            matchLabels:
+                purpose: deployment-demo
+                project: roboshop
+                app: nginx
+    template:
+        metadata:
+            labels:
+                purpose: deployment-demo
+                project: roboshop
+                app: nginx
+        spec:
+            containers:
+            - name: nginx
+              image: nginx:latest
+---
+    apiVersion: v1
+    kind: Service
+    metadata:
+        name: nginx-svc
+        labels:
+            purpose: service-demo
+    spec:
+        selector:
+            purpose: deployment-demo
+            project: roboshop
+            app: nginx
+        ports:
+          - protocol: TCP
+            port: 80 # service port
+            targetPort: 80 # container port
+
+     Understand that pod is a subset of replicaset and replicaset is a subset of Deployment
+
+    So, if we create a deployment, k8s will create a deployment, replicaset and a pod.
+
