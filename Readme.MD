@@ -16,7 +16,7 @@ We will have a workstation i.e., using which we install the Docker, eksctl, kube
 
 This image also show that an init container and the main container will use the same storage space. init container runs first and brings the necessary passwords or secrets from the AWS secret manager and places it in the storage and it gets terminated. Now, the main container comes up and uses the secrets fetched by the init container and gets the necessary details from the DB as per the user request.
 
-As per the requirment it will push the logs of the main container in to an external logstack like EKS or Dynatrace.
+As per the requirment it will push the logs of the main container in to an external logstack like EKS or Dynatrace. When the pod gets deleted the logs also gets deleted, so we are pushing the logs to a Logstack
 
 #### inorder to create k8s resources for roboshop project
     please use the below images from nagashankar1992332
