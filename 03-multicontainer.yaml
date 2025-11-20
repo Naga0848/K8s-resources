@@ -11,7 +11,7 @@ spec:
     image: nginx
   - name: almalinux
     image: almalinux:9
-
+    command: ["sleep", "1000"]  # if we dont mention this, the second container will run into a crashloopbackoff error, as we did not have any application on it to run. We have only almalinux OS. So, a container cannot run with an empty OS, we should have some application to make the container run. So, we are using the command. Now, second container will be up and running for 1000s only.
 
 # kubectl apply -f 03-multicontainer.yaml
 
