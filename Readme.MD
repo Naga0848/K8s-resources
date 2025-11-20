@@ -19,16 +19,16 @@ This image also show that an init container and the main container will use the 
 As per the requirment it will push the logs of the main container in to an external logstack like EKS or Dynatrace.
 
 #### inorder to create k8s resources for roboshop project
-    please use the below images from joindevops
+    please use the below images from nagashankar1992332
 
-        joindevops/cart
-        joindevops/catalogue
-        joindevops/mysql
-        joindevops/shipping
-        joindevops/payment
-        joindevops/user
-        joindevops/frontend
-        joindevops/mongodb
+        nagashankar1992332/cart
+        nagashankar1992332/catalogue
+        nagashankar1992332/mysql
+        nagashankar1992332/shipping
+        nagashankar1992332/payment
+        nagashankar1992332/user
+        nagashankar1992332/frontend
+        nagashankar1992332/mongodb
 
 
 
