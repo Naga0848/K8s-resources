@@ -6,11 +6,14 @@ This image just shows how the k8s workflow looks in realtime
 
 
 ![alt text](images/k8s.png)
-This image is to understand how kubectl, eksctl and docker works
+
+This image is to understand how kubectl, eksctl and docker works.
+
 We will have a workstation i.e., using which we install the Docker, eksctl, kubectl, and aws configure
     - Docker for the images
     - Kubectl to interact with cluster via AWS CLI
     - eksctl to install the kubernetes cluster
+    
 This image also show that an init container and the main container will use the same storage space. init container runs first and brings the necessary passwords or secrets from the AWS secret manager and places it in the storage and it gets terminated. Now, the main container comes up and uses the secrets fetched by the init container and gets the necessary details from the DB as per the user request.
 
 #### inorder to create k8s resources for roboshop project
