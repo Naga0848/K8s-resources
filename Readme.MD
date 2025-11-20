@@ -261,7 +261,7 @@ As per the requirment it will push the logs of the main container in to an exter
     here when we try to create a pod, we get crashloopbackof error for the second image, as we dont have any deamon or command to run the almalinux 
     continuosly. Or we should have some application inside almalinux to keep it running continuosly.In this case we are using a sleep command CMD ["sleep","1000s"]in the dockerfile itself to keep the almalinux live upto 1000s and then terminate.
 
-    Sometimes even though we get the error, in that case we have to directly delete the pod and then re-create a new one.
+    Sometimes we get the same error when there is much time in getting the image from our image hub, in that case we have to directly delete the pod and then re-create a new one.
 
     kubectl exec -it multicontainer -c almalinux --bash (to login to the second container) within the multicontainer pod.
 
